@@ -151,7 +151,11 @@ export const CampusAnanthNagar: React.FC<CampusAnanthNagarProps> = ({ onEnrollCl
                   <div className="text-sm font-bold text-white">+91 {FUTURE_MINDS_PHONE}</div>
                 </div>
                 <a
-                  href={`https://wa.me/91${FUTURE_MINDS_PHONE}?text=Hi,%20i%20am%20intrested%20can%20i%20get%20more%20details`}
+                  href={getEnrollmentWhatsAppUrl({
+                    parentName: 'Parent',
+                    courseInterest: 'Campus Visit & Lab Inquiry',
+                    preferredMode: 'ananth_nagar_lab'
+                  })}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-semibold transition"

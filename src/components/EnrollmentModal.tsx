@@ -32,23 +32,29 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({
     // Generate WhatsApp link with user details
     const waUrl = getEnrollmentWhatsAppUrl({
       parentName: parentName || 'Parent',
+      parentPhone: phone,
       studentName: studentName || 'Student',
-      studentAge: studentAge,
+      studentGradeOrAge: `${studentAge} years`,
       courseInterest,
+      preferredSlot,
       preferredMode,
       notes
     });
 
     setSubmitted(true);
     
-    // Small delay so user sees state, then open WhatsApp
-    setTimeout(() => {
-      window.open(waUrl, '_blank', 'noopener,noreferrer');
-    }, 400);
+    try {
+      const opened = window.open(waUrl, '_blank', 'noopener,noreferrer');
+      if (!opened || opened.closed || typeof opened.closed === 'undefined') {
+        window.location.assign(waUrl);
+      }
+    } catch {
+      window.location.assign(waUrl);
+    }
   };
 
   const handleQuickWhatsApp = () => {
-    const directUrl = getWhatsAppDirectUrl('Hi, i am intrested can i get more details');
+    const directUrl = getWhatsAppDirectUrl('Hi Future Minds, I would like to inquire about Robotics, AI & Coding admissions for my child at your Ananth Nagar campus. Please share program details.');
     window.open(directUrl, '_blank', 'noopener,noreferrer');
   };
 
@@ -292,10 +298,10 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({
                 <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
                 WhatsApp Message Preview to 9618283987:
               </div>
-              <p className="italic font-mono text-[11px] text-slate-700 bg-white p-2 rounded border border-slate-150">
-                &ldquo;Hi, i am intrested can i get more details
-                <br />*Parent:* {parentName || '...'} | *Student:* {studentName || '...'} ({studentAge} yrs)
-                <br />*Course:* {courseInterest}&rdquo;
+              <p className="font-mono text-[11px] text-slate-700 bg-white p-2.5 rounded border border-slate-200 leading-relaxed">
+                🚀 *FUTURE MINDS — NEW ENROLLMENT ENQUIRY*
+                <br />👤 *Parent:* {parentName || '...'} | 👦 *Student:* {studentName || '...'} ({studentAge} yrs)
+                <br />🔬 *Track:* {courseInterest} | 📍 *Campus:* Ananth Nagar STEM Lab
               </p>
             </div>
 

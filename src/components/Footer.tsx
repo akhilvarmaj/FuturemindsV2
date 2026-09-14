@@ -122,12 +122,12 @@ export const Footer: React.FC<{ onEnrollClick: () => void }> = ({ onEnrollClick 
               <div className="flex items-center gap-2">
                 <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
                 <a
-                  href={getWhatsAppDirectUrl('Hi, i am intrested can i get more details')}
+                  href={getWhatsAppDirectUrl('Hi Future Minds, I would like to inquire about admissions for Robotics, AI & Coding at your Ananth Nagar campus.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-emerald-400 hover:underline font-semibold"
                 >
-                  WhatsApp: +91 {FUTURE_MINDS_PHONE} (&ldquo;Hi, i am intrested...&rdquo;)
+                  WhatsApp: +91 {FUTURE_MINDS_PHONE}
                 </a>
               </div>
             </div>

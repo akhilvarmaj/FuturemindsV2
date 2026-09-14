@@ -89,7 +89,7 @@ export const Hero: React.FC<HeroProps> = ({ onEnrollClick, onExploreLessons }) =
               </button>
 
               <a
-                href={getWhatsAppDirectUrl('Hi, i am intrested can i get more details')}
+                href={getWhatsAppDirectUrl('Hi Future Minds, I would like to inquire about admissions for Robotics, AI & Coding for my child at your Ananth Nagar campus.')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-5 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl text-sm transition shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2"

@@ -5,7 +5,7 @@ import {
 } from 'lucide-react';
 import { COURSES } from '../data/coursesData';
 import { Course, CourseCategory, AgeGroup } from '../types';
-import { getEnrollmentWhatsAppUrl, FUTURE_MINDS_PHONE } from '../utils/whatsapp';
+import { getEnrollmentWhatsAppUrl, getWhatsAppDirectUrl, FUTURE_MINDS_PHONE } from '../utils/whatsapp';
 
 interface CourseCatalogProps {
   onSelectCourseToEnroll: (courseTitle: string) => void;
@@ -238,7 +238,7 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ onSelectCourseToEn
               Book Free Assessment
             </button>
             <a
-              href={`https://wa.me/91${FUTURE_MINDS_PHONE}?text=Hi,%20i%20am%20intrested%20can%20i%20get%20more%20details`}
+              href={getWhatsAppDirectUrl('Hi Future Minds, I would like to inquire about course enrollment and batch availability for my child at your Ananth Nagar campus.')}
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2"

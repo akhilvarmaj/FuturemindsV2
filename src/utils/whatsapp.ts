@@ -2,7 +2,8 @@ export const FUTURE_MINDS_PHONE = '9618283987';
 export const WHATSAPP_COUNTRY_CODE = '91'; // India
 export const WHATSAPP_FULL_NUMBER = `${WHATSAPP_COUNTRY_CODE}${FUTURE_MINDS_PHONE}`;
 
-export const DEFAULT_WHATSAPP_MESSAGE = 'Hi, i am intrested can i get more details';
+export const DEFAULT_WHATSAPP_MESSAGE = 
+  'Hi Future Minds, I would like to inquire about Robotics, AI & Coding admissions for school students (Grades 1–10) at your Ananth Nagar campus. Please share program details and demo availability.';
 
 /**
  * Creates a direct WhatsApp click-to-chat URL
@@ -12,36 +13,65 @@ export function getWhatsAppDirectUrl(customMessage?: string): string {
   return `https://wa.me/${WHATSAPP_FULL_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
-/**
- * Creates a WhatsApp URL with enrollment details
- */
-export function getEnrollmentWhatsAppUrl(details: {
+export interface EnrollmentInquiryDetails {
   parentName: string;
-  studentName: string;
-  studentAge: string | number;
-  courseInterest: string;
+  parentPhone?: string;
+  studentName?: string;
+  studentGradeOrAge?: string;
+  studentAge?: string | number;
+  courseInterest?: string;
+  preferredSlot?: string;
   preferredMode?: string;
   notes?: string;
-}): string {
+}
+
+/**
+ * Creates a WhatsApp URL with comprehensive enrollment details
+ */
+export function getEnrollmentWhatsAppUrl(details: EnrollmentInquiryDetails): string {
   const lines: string[] = [
-    'Hi, i am intrested can i get more details',
+    '🚀 *FUTURE MINDS — NEW ENROLLMENT & DEMO ENQUIRY*',
     '',
-    `*Parent Name:* ${details.parentName.trim() || 'Parent'}`,
-    `*Student Name:* ${details.studentName.trim() || 'Student'}`,
-    `*Student Age:* ${details.studentAge || 'Not specified'} years`,
-    `*Course Interest:* ${details.courseInterest || 'Coding & Robotics'}`,
-    `*Preferred Campus/Mode:* ${
-      details.preferredMode === 'online_interactive'
-        ? 'Live Online Interactive'
-        : 'Ananth Nagar STEM Lab (In-person)'
-    }`
+    `👤 *Parent Name:* ${details.parentName?.trim() || 'Parent'}`,
   ];
 
-  if (details.notes && details.notes.trim()) {
-    lines.push(`*Notes/Queries:* ${details.notes.trim()}`);
+  if (details.parentPhone && details.parentPhone.trim()) {
+    lines.push(`📞 *Contact Number:* ${details.parentPhone.trim()}`);
   }
 
-  lines.push('', 'Looking forward to scheduling a free trial session at Future Minds!');
+  if (details.studentName && details.studentName.trim()) {
+    lines.push(`👦 *Student Name:* ${details.studentName.trim()}`);
+  }
+
+  const gradeOrAge = details.studentGradeOrAge?.trim() || (details.studentAge ? `${details.studentAge} years` : '');
+  if (gradeOrAge) {
+    lines.push(`🎓 *Grade / Age:* ${gradeOrAge}`);
+  }
+
+  if (details.courseInterest && details.courseInterest.trim()) {
+    lines.push(`🔬 *Program Track:* ${details.courseInterest.trim()}`);
+  }
+
+  if (details.preferredSlot && details.preferredSlot.trim()) {
+    lines.push(`⏰ *Preferred Timing:* ${details.preferredSlot.trim()}`);
+  }
+
+  lines.push(
+    `📍 *Campus:* ${
+      details.preferredMode === 'online_interactive'
+        ? 'Live Online Interactive (1-on-1)'
+        : 'Ananth Nagar STEM Lab (1121, 5th Cross, Phase II, Bengaluru)'
+    }`
+  );
+
+  if (details.notes && details.notes.trim()) {
+    lines.push(`📝 *Notes / Questions:* ${details.notes.trim()}`);
+  }
+
+  lines.push(
+    '',
+    'Hello Future Minds team, I have filled out the inquiry form on your website. Please confirm availability for a free demo session for my child!'
+  );
 
   const fullText = lines.join('\n');
   return `https://wa.me/${WHATSAPP_FULL_NUMBER}?text=${encodeURIComponent(fullText)}`;

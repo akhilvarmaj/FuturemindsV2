@@ -57,7 +57,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </a>
             <span className="text-slate-600">|</span>
             <a
-              href={getWhatsAppDirectUrl('Hi, i am intrested can i get more details')}
+              href={getWhatsAppDirectUrl('Hi Future Minds, I would like to inquire about Robotics, AI & Coding admissions for my child at your Ananth Nagar campus.')}
               target="_blank"
               rel="noopener noreferrer"
               className="text-emerald-400 hover:text-emerald-300 transition flex items-center gap-1 font-semibold"
@@ -116,7 +116,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="hidden sm:flex items-center gap-2.5">
             {/* Direct WhatsApp button with phone 9618283987 */}
             <a
-              href={getWhatsAppDirectUrl('Hi, i am intrested can i get more details')}
+              href={getWhatsAppDirectUrl('Hi Future Minds, I would like to inquire about Robotics, AI & Coding admissions for my child at your Ananth Nagar campus.')}
               target="_blank"
               rel="noopener noreferrer"
               className="px-3.5 py-2 text-xs font-semibold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-xl transition border border-emerald-200 flex items-center gap-1.5"
@@ -174,7 +174,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
             <a
-              href={getWhatsAppDirectUrl('Hi, i am intrested can i get more details')}
+              href={getWhatsAppDirectUrl('Hi Future Minds, I would like to inquire about Robotics, AI & Coding admissions for my child at your Ananth Nagar campus.')}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-2.5 text-center text-xs font-semibold bg-emerald-600 text-white rounded-xl flex items-center justify-center gap-2"

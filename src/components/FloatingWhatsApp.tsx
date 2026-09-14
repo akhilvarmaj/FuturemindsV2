@@ -10,7 +10,7 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ onOpenEnroll
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSendDirect = () => {
-    window.open(getWhatsAppDirectUrl('Hi, i am intrested can i get more details'), '_blank', 'noopener,noreferrer');
+    window.open(getWhatsAppDirectUrl('Hi Future Minds, I would like to inquire about admissions for Robotics, AI & Coding at your Ananth Nagar campus.'), '_blank', 'noopener,noreferrer');
     setIsOpen(false);
   };
 
@@ -58,7 +58,7 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ onOpenEnroll
               className="w-full py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-md shadow-emerald-600/20"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
-              <span>Send: &quot;Hi, i am intrested...&quot;</span>
+              <span>Send Inquiry via WhatsApp</span>
             </button>
 
             <button
