@@ -1,0 +1,6 @@
+{
+  "name": "Future Minds - Kids Coding, AI & Robotics",
+  "description": "Interactive coding, AI, and robotics academy for kids aged 6-16 based in Ananth Nagar, featuring hands-on lesson modules, real-time student growth tracking, and instant WhatsApp enrollment.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
